@@ -1,5 +1,5 @@
 "use client";
-export default function InputTimer({ value, onChange }) {
+export default function InputTimer({ value, onChange, error }) {
   return (
     <div>
       <label htmlFor="timer">Tempo de prática (minutos):</label>
@@ -10,6 +10,7 @@ export default function InputTimer({ value, onChange }) {
         onChange={(e) => onChange(e.target.value)}
         placeholder="Ex: 25"
       />
+      {error && <span className="text-red-500">{error}</span>}
     </div>
   );
 }

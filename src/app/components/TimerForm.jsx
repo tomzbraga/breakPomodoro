@@ -10,20 +10,32 @@ export default function TimerForm() {
   const [timer, setTimer] = useState("");
   const [restEnabled, setRestEnabled] = useState(false);
   const [restTime, setRestTime] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Configuracoes: ", { timer, restEnabled, restTime });
+
+    const newErrors = {};
+
+    if (!timer) newErrors.timer = "Obrigatório";
+    if (restEnabled && !restTime) newErrors.restTime = "Obrigatório";
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      console.log("Configuracoes: ", { timer, restEnabled, restTime });
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <InputTimer value={timer} onChange={setTimer} />
+      <InputTimer value={timer} onChange={setTimer} error={errors.timer} />
       <RestCheckbox value={restEnabled} onChange={setRestEnabled} />
       <RestInput
         value={restTime}
         onChange={setRestTime}
         enabled={restEnabled}
+        error={errors.restTime}
       />
       <StartButton />
     </form>
