@@ -2,7 +2,7 @@
 export default function RestCheckbox({ checked, onChange }) {
   return (
     <div>
-      <label>
+      <label className="text-gray-100">
         <input
           type="checkbox"
           checked={checked}

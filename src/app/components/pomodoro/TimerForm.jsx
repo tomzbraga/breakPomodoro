@@ -6,7 +6,7 @@ import RestInput from "./RestInput";
 import StartButton from "./StartButton";
 import { useState } from "react";
 
-export default function TimerForm() {
+export default function TimerForm({ onStart }) {
   const [timer, setTimer] = useState("");
   const [restEnabled, setRestEnabled] = useState(false);
   const [restTime, setRestTime] = useState("");
@@ -24,6 +24,7 @@ export default function TimerForm() {
 
     if (Object.keys(newErrors).length === 0) {
       console.log("Configuracoes: ", { timer, restEnabled, restTime });
+      onStart({ timer, restEnabled, restTime });
     }
   };
 
