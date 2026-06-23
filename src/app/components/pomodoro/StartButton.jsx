@@ -1,7 +1,7 @@
 "use client";
-export default function StartButton({ onClick }) {
+export default function StartButton() {
   return (
-    <button type="submit" onClick={onClick} className="text-gray-100">
+    <button type="submit" className="text-gray-100">
       Iniciar
     </button>
   );

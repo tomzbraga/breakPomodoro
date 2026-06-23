@@ -1,5 +1,5 @@
 import Image from "next/image";
-import TimerForm from "./components/pomodoro/TimerForm";
+import PomodoroApp from "./components/pomodoro/PomodoroApp";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold text-gray-100 mb-4">
           Configurações do Pomodoro
         </h1>
-        <TimerForm />
+        <PomodoroApp />
       </div>
     </main>
   );

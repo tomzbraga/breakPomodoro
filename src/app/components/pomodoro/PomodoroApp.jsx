@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import TimerForm from "./TimerForm";
+import Timer from "./Timer";
 
 export default function PomodoroApp() {
   const [isRunning, setIsRunning] = useState(false);
@@ -13,8 +14,8 @@ export default function PomodoroApp() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-red-500 via-pink-500 to-purple-600">
-      <div className="w-full max-w-md bg-white rounded-xl shadow-2xl p-8">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-md rounded-xl p-8">
         {!isRunning ? (
           <TimerForm onStart={handleStart} />
         ) : (

@@ -7,6 +7,8 @@ export default function Timer({ config }) {
   const [timeLeft, setTimeLeft] = useState(timer * 60);
   const [isRest, setIsRest] = useState(false);
 
+  // useEffect executa a "lógica do componente" quando
+  // ele é carregado.
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft((prev) => {
@@ -23,5 +25,10 @@ export default function Timer({ config }) {
     return () => clearInterval(interval);
   }, [isRest, restEnabled, restTime]);
 
-  return <></>;
+  return (
+    <div className="text-gray-100">
+      {isRest ? <h1>Intervalo</h1> : <h1>Prática</h1>}
+      <p>{timeLeft}</p>
+    </div>
+  );
 }
