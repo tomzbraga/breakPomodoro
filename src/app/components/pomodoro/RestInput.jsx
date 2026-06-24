@@ -4,16 +4,18 @@ export default function RestInput({ value, onChange, enabled, error }) {
 
   return (
     <div>
-      <label htmlFor="rest">Tempo de descanso (minutos):</label>
+      <label htmlFor="rest" className="text-gray-100">
+        Tempo de descanso (minutos):
+      </label>
       <input
         id="rest"
         type="number"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Ex: 5"
         disabled={!enabled}
+        className="w-full p-2 bg-gray-900 text-gray-100 border border-gray-700 rounded focus:outline-none focus:border-indigo-500"
       />
-      {enabled && error && <span className="text-red-700">{error}</span>}
+      {enabled && error && <span className="text-red-300">{error}</span>}
     </div>
   );
 }
